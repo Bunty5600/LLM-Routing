@@ -1,0 +1,68 @@
+
+seed: 42
+
+data:
+  hf_name: "openai/gsm8k"
+  hf_config: "main"
+  pilot_size: 25          # from train
+  calibration_size: 50    # from train, disjoint from pilot
+  evaluation_size: 100    # from test
+  dir: "data"
+
+models:
+  small_a: "qwen2.5:1.5b"   # pair 1 small model
+  small_b: "llama3.2:1b"    # pair 2 small model (different family)
+  strong: "qwen2.5:7b"
+  pilot_candidates:
+    - "qwen2.5:1.5b"
+    - "qwen2.5:3b"
+    - "llama3.2:1b"
+    - "llama3.2:3b"
+    - "qwen2.5:7b"
+
+generation:
+  num_ctx: 4096
+  num_predict: 512
+  greedy_temperature: 0.0
+  sample_temperature: 0.7
+  k_samples: 3
+  prompt_template: |
+    Solve the following math problem step by step.
+    End your response with a final line in exactly this format:
+    Final answer: <number>
+
+    Problem: {question}
+
+ollama:
+  base_url: "http://localhost:11434"
+  timeout_seconds: 600
+  max_retries: 3
+  keep_alive: "30m"       # keep the model loaded between calls, so load time is not mixed into per-question time
+
+replay:
+  pre_generation: true    # random/difficulty escalation skip the small call (strict variant is run too)
+  random_rates: [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
+  random_seeds: 200       # random baselines are averaged over this many seeds
+  logprob_mode: "mean"    # "mean" or "min" token probability
+  escalation_budget: 0.30 # operating point 1: escalate at most this share (set on calibration)
+  error_recall_target: 0.70  # operating point 2: catch this share of small-model errors (calibration)
+  bootstrap_resamples: 10000
+
+routellm:                 # extra baseline, run in the separate venv-routellm environment
+  router: "bert"          # the only router that runs fully locally (no OpenAI embeddings)
+  checkpoint: "routellm/bert_gpt4_augmented"
+  scores_file: "results/routellm_scores.json"
+  smoke_questions: 5
+
+tiered:                   # capability profile, two-stage, three-tier
+  medium_model: "qwen2.5:3b"        # medium tier (same family as pair 1)
+  three_tier_pairs: ["pair1"]       # three-tier cascade is run for these pairs only
+  n_buckets: 3                      # difficulty buckets for the capability profile (calibration split)
+  required_quality: 0.85            # predefined operating point (the synopsis example)
+  quality_grid: [0.5, 0.6, 0.7, 0.8, 0.85, 0.9, 0.95, 1.0]   # sweep for curves
+  agreement_thresholds: [0.5, 0.833]  # E1 thresholds for k = 3 (the only two distinct rules)
+
+paths:
+  results: "results"
+  figures: "figures"
+  cache: "results/cache"

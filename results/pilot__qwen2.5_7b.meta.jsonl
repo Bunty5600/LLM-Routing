@@ -1,0 +1,1 @@
+{"model": "qwen2.5:7b", "split": "pilot", "warmup_load_seconds": 9.4775296, "questions_to_run": 25, "samples": false, "timestamp": "2026-10-24T12:45:25.651660+00:00"}

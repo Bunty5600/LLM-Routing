@@ -1,0 +1,9 @@
+pair,strategy,strong_only_accuracy,strong_only_cost,note,param,escalation_rate,accuracy,cost_per_q,cost_vs_strong_only
+pair1,E1,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",1.1666666666666667,1.0,0.95,32.031913489949986,1.2570289464906057
+pair1,E2,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",0.9531100088488969,0.94,0.93,26.399707149939992,1.036004173673903
+pair1,D,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",-0.5672205888232145,0.66,0.93,20.974244369940006,0.8230926420319628
+pair1,C,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",1.0,1.0,0.95,27.96500634993999,1.0974312378090483
+pair2,E1,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",1.1666666666666667,1.0,0.95,32.44604304991001,1.2732806401220365
+pair2,E2,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",0.9367281057230064,0.94,0.93,26.64857985995,1.0457706898257493
+pair2,D,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",-0.9151541602988194,0.82,0.93,24.71320934994999,0.9698209107400385
+pair2,C,0.95,25.48224014998001,"post-hoc: read off the evaluation curve, not tuned on it",1.0,1.0,0.95,28.23662690995,1.1080904482399736

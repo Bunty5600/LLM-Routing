@@ -1,0 +1,57 @@
+{
+ "router_meta": {
+  "router": "bert",
+  "checkpoint": "routellm/bert_gpt4_augmented",
+  "input": "raw question text only",
+  "device": "cpu",
+  "router_load_seconds": 11.183745700007421,
+  "n_scored": 150,
+  "versions": {
+   "routellm": "0.2.0",
+   "torch": "2.14.1",
+   "transformers": "5.20.2",
+   "huggingface-hub": "1.33.0"
+  },
+  "timestamp": "2026-10-25T07:15:59.443076+00:00"
+ },
+ "pre_generation": false,
+ "models": {
+  "pair1": "qwen2.5:1.5b",
+  "pair2": "llama3.2:1b",
+  "strong": "qwen2.5:7b"
+ },
+ "thresholds": [
+  {
+   "pair": "pair1",
+   "point": "budget",
+   "threshold": 0.5516101121902466,
+   "cal_escalation_rate": 0.3,
+   "cal_error_recall": 0.6666666666666666,
+   "eval_escalation_rate": 0.4
+  },
+  {
+   "pair": "pair1",
+   "point": "recall",
+   "threshold": 0.5433118343353271,
+   "cal_escalation_rate": 0.4,
+   "cal_error_recall": 0.75,
+   "eval_escalation_rate": 0.43
+  },
+  {
+   "pair": "pair2",
+   "point": "budget",
+   "threshold": 0.5609688758850098,
+   "cal_escalation_rate": 0.28,
+   "cal_error_recall": 0.3333333333333333,
+   "eval_escalation_rate": 0.35
+  },
+  {
+   "pair": "pair2",
+   "point": "recall",
+   "threshold": 0.4815492033958435,
+   "cal_escalation_rate": 0.72,
+   "cal_error_recall": 0.7142857142857143,
+   "eval_escalation_rate": 0.66
+  }
+ ]
+}

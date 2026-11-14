@@ -1,0 +1,1 @@
+{"model": "llama3.2:3b", "split": "pilot", "warmup_load_seconds": 6.2041232, "questions_to_run": 25, "samples": false, "timestamp": "2026-10-24T12:45:13.046331+00:00"}

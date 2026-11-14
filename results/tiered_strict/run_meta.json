@@ -1,0 +1,30 @@
+{
+ "models": {
+  "pair1": "qwen2.5:1.5b",
+  "pair2": "llama3.2:1b",
+  "strong": "qwen2.5:7b"
+ },
+ "pre_generation": false,
+ "tiered": {
+  "medium_model": "qwen2.5:3b",
+  "three_tier_pairs": [
+   "pair1"
+  ],
+  "n_buckets": 3,
+  "required_quality": 0.85,
+  "quality_grid": [
+   0.5,
+   0.6,
+   0.7,
+   0.8,
+   0.85,
+   0.9,
+   0.95,
+   1.0
+  ],
+  "agreement_thresholds": [
+   0.5,
+   0.833
+  ]
+ }
+}

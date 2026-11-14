@@ -1,0 +1,11 @@
+pair,signal,target,auc,n_positive,n
+pair1,R router score,greedy answer wrong,0.5284118504128218,29,100
+pair1,D difficulty score,greedy answer wrong,0.7163671685284119,29,100
+pair1,E1 disagreement,greedy answer wrong,0.7292374939290918,29,100
+pair1,E1 disagreement,majority answer wrong,0.8166585721223895,29,100
+pair1,E2 low confidence,greedy answer wrong,0.5653229723166586,29,100
+pair2,R router score,greedy answer wrong,0.6042673107890499,46,100
+pair2,D difficulty score,greedy answer wrong,0.7385265700483091,46,100
+pair2,E1 disagreement,greedy answer wrong,0.7584541062801933,46,100
+pair2,E1 disagreement,majority answer wrong,0.8060344827586207,42,100
+pair2,E2 low confidence,greedy answer wrong,0.6545893719806763,46,100
